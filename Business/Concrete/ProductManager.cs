@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using Core.Utilities.Business;
+using Business.BusinessAspects.Autofac;
 
 namespace Business.Concrete
 {
@@ -32,6 +33,7 @@ namespace Business.Concrete
 
 
         }
+        [SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))]
 
         public IResult Add(Product product)
